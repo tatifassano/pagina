@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="ar.com.trimix.common.business.ContextManager" %>
+<%@ page import="ar.edu.ues21.menu.controller.BannerArribaController" %>
+<%  
+	String usuario = request.getParameter("usuario");
+	String token =  "";
+	String vDni = request.getParameter("dni");
+	String urlIntermedia=ContextManager.getCachedProperty("campus.url.intermedia");
+	String urlPortalNuevo=ContextManager.getProperty("campus.url.portalnuevo");
+	String urlSimuladorPrecio=ContextManager.getProperty("campus.url.simuladorprecio");
+	String TipoId = "DNI";
+	String  rol = "Alumno";
+    String Sistema = "Campus"; 
+    String Universidad = "UES21";
+    boolean beta = BannerArribaController.chequearPerfilesBeta(usuario);
+    
+       %>
+<html>
+<body>
+<div class="acceso-top"><a href=" https://www.lanube.21.edu.ar/" target="_blank"> <img src="imagenes/acceso-lanube.png" width="75px" height="30px"/></a></div>
+<div class="acceso-top">
+  <form id="formAyudaArriba" target="_blank" method="post" name="formAyudaArriba" action="servlet/ServletMesaAyuda">
+    <input name="usuario" id="usuario" type="hidden" value="<%=usuario%>" />
+    <input name="TipoId" id="TipoId" type="hidden" value="<%=TipoId%>" />
+    <input name="rol" id="rol" type="hidden" value="<%=rol%>" />
+    <input name="Sistema" id="Sistema" type="hidden" value="<%=Sistema%>" />
+    <input name="Id" id="Id" type="hidden" value="<%=vDni%>" />
+    <input name="Universidad" id="Universidad" type="hidden" value="<%=Universidad%>" />
+    <img src="imagenes/acceso-mi-gestion.png"  width="79px" height="17px" style="cursor: pointer;" onclick="document.formAyudaArriba.submit()"/>
+  </form>
+</div>
+<div class="acceso-top">
+  <form id="formBajaLibrosUp" target="_blank" method="post" name="formBajaLibrosUp" action="servlet/ServletBajaLibro"/>
+  
+  	<input name="Id" id="Id" type="hidden" value="<%=vDni%>" />
+  	<img src="imagenes/acceso-ebook.png" width="53px" height="13px" style="cursor: pointer;" onclick="document.formBajaLibrosUp.submit()"/>
+  </form>
+</div>
+<div class="acceso-top"><a href=" https://siglo21.instructure.com/login/canvas" target="_blank"> <img src="imagenes/ico-acceso-epic-sam.png" width="14px" height="12px"/> Nuevo SAM </a></div>
+<div class="acceso-top"><a href="<%=urlIntermedia%>" target="_blank"> <img src="imagenes/ico-acceso-pago-electronico.png" width="11px" height="13px"/> Pago electr&oacute;nico </a></div>
+	<%
+        if (beta) {
+    %>
+    <div class="acceso-top"><a href="<%=urlPortalNuevo%>" target="_blank"> <img src="imagenes/21-new.png" width="14px" height="12px"/> Portal BETA </a></div>
+    <%
+        }
+    %>
+ <div class="acceso-top"><a href="<%=urlSimuladorPrecio%>" target="_blank"> <img src="imagenes/simulador-precio.png" width="14px" height="12px"/> Simulador de precios </a></div>
+
+ <!-- modificacion -->
+
+<div>
+    <button class="btn" id="btn" onclick=" window.open('http://google.com','_blank')">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="31" viewBox="0 0 82 31">
+            <defs>
+                <clipPath id="clip-Acceso_Header">
+                    <rect width="82" height="31"/>
+                </clipPath>
+            </defs>
+            <g id="Acceso_Header" data-name="Acceso Header" clip-path="url(#clip-Acceso_Header)">
+                <g id="Grupo_6273" data-name="Grupo 6273" transform="translate(-548 -61)">
+                    <g id="Grupo_6261" data-name="Grupo 6261" transform="translate(580.759 70)">
+                        <text id="Perfil_21" data-name="Perfil 21" transform="translate(0.24 10)" fill="#606060" font-size="11" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">Perfil 21</tspan></text>
+                    </g>
+                    <rect id="Rectángulo_2233" data-name="Rectángulo 2233" width="82" height="31" transform="translate(548 61)" fill="none"/>
+                    <g id="Grupo_6265" data-name="Grupo 6265" transform="translate(563.121 70)">
+                        <path id="Trazado_2435" data-name="Trazado 2435" d="M525.171,417.848v14.065h10.911l2.756-14.065Z" transform="translate(-525.171 -417.848)" fill="#173f35"/>
+                        <path id="Trazado_2436" data-name="Trazado 2436" d="M533.591,422.948a3.224,3.224,0,0,0-2.119-.59,6.856,6.856,0,0,0-1.367.145,7.2,7.2,0,0,0-.707.183l-.352,1.824a4.251,4.251,0,0,1,.753-.323,3.625,3.625,0,0,1,1.076-.148,1.166,1.166,0,0,1,.863.277.958.958,0,0,1,.266.692,1.626,1.626,0,0,1-.525,1.145,19.011,19.011,0,0,1-2.121,1.675l-1.1.788-.41,2.127h5.393l.333-1.73h-3.249l1.422-1a8.953,8.953,0,0,0,1.916-1.737,2.9,2.9,0,0,0,.623-1.79,1.932,1.932,0,0,0-.692-1.542" transform="translate(-526.156 -419.51)" fill="#fff"/>
+                        <path id="Trazado_2437" data-name="Trazado 2437" d="M545.513,417.848h-.55l-2.757,14.065h3.308Z" transform="translate(-531.448 -417.848)" fill="#173f35"/>
+                        <path id="Trazado_2438" data-name="Trazado 2438" d="M540.928,427.081l-2.051.7-.353,1.832,1.57-.625-1.237,6.332h1.993l1.613-8.234Z" transform="translate(-530.091 -421.25)" fill="#fff"/>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </button>
+
+</div>
+ <!-- /modificacion -->
+       
+
+</body>
+</html>
